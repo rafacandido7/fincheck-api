@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid()) @db.Uuid
+  name     String
+  email    String @unique
+  password String
+
+  BankAcounts  BankAcount[]
+  Categories   Category[]
+  Transactions Transaction[]
+
+  @@map("Users")
+}
+
+enum BankAccountType {
+  CHECKING
+  INVESTMENT
+  CASH
+}
+
+model BankAcount {
+  id             String          @id @default(uuid()) @db.Uuid
+  userId         String          @db.Uuid
+  name           String
+  initialBalance Float
+  type           BankAccountType
+  color          String
+
+  Transactions Transaction[]
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("BankAcounts")
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+model Category {
+  id     String          @id @default(uuid()) @db.Uuid
+  userId String          @db.Uuid
+  name   String
+  icon   String
+  type   TransactionType
+
+  Transactions Transaction[]
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("Categories")
+}
+
+model Transaction {
+  id            String   @id @default(uuid()) @db.Uuid
+  userId        String   @db.Uuid
+  bankAccountId String   @db.Uuid
+  categoryId    String?  @db.Uuid
+  name          String
+  value         Float
+  date          DateTime
+
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bankAccount BankAcount @relation(fields: [bankAccountId], references: [id], onDelete: Cascade)
+  category    Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@map("Transactions")
+}
