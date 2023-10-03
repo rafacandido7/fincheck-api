@@ -1,12 +1,12 @@
 <div align="center">
 
-#Controle de Finanças
+# Controle de Finanças
 
 [![GitHub License](https://img.shields.io/github/license/rafacandido7/fincheck-api)](https://github.com/rafacandido7/fincheck-api/LICENSE)
-[![NestJS](https://img.shields.io/badge/NestJS-8.0.0-E0234E)](https://nestjs.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-3.0.0-105C7E)](https://www.prisma.io/)
+[![NestJS](https://img.shields.io/badge/NestJS-10.0.0-E0234E)](https://nestjs.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-5.3.1-105C7E)](https://www.prisma.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-336791)](https://www.postgresql.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-4.5.0-007ACC)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.1.3-007ACC)](https://www.typescriptlang.org/)
 
 Um backend robusto e flexível para a sua aplicação de controle de finanças construído com Nest.js, Prisma, PostgreSQL e TypeScript.
 
