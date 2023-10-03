@@ -17,7 +17,7 @@ model User {
   categories   Category[]
   transactions Transaction[]
 
-  @@map("Users")
+  @@map("users")
 }
 
 enum BankAccountType {
@@ -38,7 +38,7 @@ model BankAcount {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@map("BankAcounts")
+  @@map("bankAcounts")
 }
 
 enum TransactionType {
@@ -57,7 +57,7 @@ model Category {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@map("Categories")
+  @@map("categories")
 }
 
 model Transaction {
@@ -73,5 +73,5 @@ model Transaction {
   bankAccount BankAcount @relation(fields: [bankAccountId], references: [id], onDelete: Cascade)
   category    Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
 
-  @@map("Transactions")
+  @@map("transactions")
 }
