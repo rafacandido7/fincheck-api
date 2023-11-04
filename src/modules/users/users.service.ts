@@ -16,7 +16,6 @@ export class UsersService {
       where: { email },
       select: { id: true },
     })
-
     if (isEmailTaken) {
       throw new ConflictException('This email is already in use!')
     }
