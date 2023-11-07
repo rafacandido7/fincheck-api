@@ -39,3 +39,4 @@ lerna-debug.log*
 
 # lock
 yarn.lock
+bun.lockb

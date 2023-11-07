@@ -16,3 +16,8 @@ async function bootstrap() {
 }
 
 bootstrap()
+
+console.log(
+  '\x1b[34m\x1b[1m%s\x1b[0m',
+  `API Running on http://localhost:${env.apiPort} 🚀\n`,
+)
